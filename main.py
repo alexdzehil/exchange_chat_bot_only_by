@@ -1,3 +1,4 @@
+#!/home/alex/Документы/exchange/env/bin/python
 import datetime
 
 from emoji import emojize
@@ -40,8 +41,8 @@ def send_to_group(args):
         config.CHAT_ID,
         f"{bank}**Держу в курсе Беларусбанка**\n"
         f"{date}**{now}**\n"
-        f"{dollar}1$ - {usd_in}, {usd_out}\n"
-        f"{eu_emoji}1{euro} - {eur_in}, {eur_out}\n"
+        f"{dollar}    1$ - {usd_in}, {usd_out}\n"
+        f"{eu_emoji}    1{euro} - {eur_in}, {eur_out}\n"
         f"{ru_emoji}100{rub} - {rub_in}, {rub_out}\n"
     )
 
