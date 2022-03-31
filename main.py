@@ -5,10 +5,10 @@ from emoji import emojize
 import requests
 import telebot
 
-import config
+import _config
 
 
-bot = telebot.TeleBot(config.TELEGRAM_KEY)
+bot = telebot.TeleBot(_config.TELEGRAM_KEY)
 
 
 def get_course(url):
@@ -27,18 +27,18 @@ def get_course(url):
 
 def send_to_group(args):
     usd_in, usd_out, eur_in, eur_out, rub_in, rub_out = args
-    bank = emojize(config.USER_EMOJI[0], language='alias')
-    date = emojize(config.USER_EMOJI[4], language='alias')
-    eu_emoji = emojize(config.USER_EMOJI[2], language='alias')
-    ru_emoji = emojize(config.USER_EMOJI[3], language='alias')
-    dollar = emojize(config.USER_EMOJI[1], language='alias')
+    bank = emojize(_config.USER_EMOJI[0], language='alias')
+    date = emojize(_config.USER_EMOJI[4], language='alias')
+    eu_emoji = emojize(_config.USER_EMOJI[2], language='alias')
+    ru_emoji = emojize(_config.USER_EMOJI[3], language='alias')
+    dollar = emojize(_config.USER_EMOJI[1], language='alias')
     euro = '\u20ac'
     rub = '\u20BD'
     now = datetime.datetime.date(datetime.datetime.today())
     now = now.strftime("%d.%m.%Y")
 
     bot.send_message(
-        config.CHAT_ID,
+        _config.CHAT_ID,
         f"{bank}**Держу в курсе Беларусбанка**\n"
         f"{date}**{now}**\n"
         f"{dollar}    1$ - {usd_in}, {usd_out}\n"
@@ -47,4 +47,4 @@ def send_to_group(args):
     )
 
 
-send_to_group(get_course(config.URL))
+send_to_group(get_course(_config.URL))
